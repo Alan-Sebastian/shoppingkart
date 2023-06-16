@@ -1,0 +1,38 @@
+<section class="view-products">
+    <div class="container">
+      <div class="col-md-12">
+        <div class="row mt-4">
+            <a href="admin/add-product" class="btn btn-success ml-auto">Add Product</a>
+        </div>
+        </div>
+        <div class="col-md-12 p-5">
+<table class="table mt-5" id="prodSearch">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">products</th>
+      <th scope="col">category</th>
+      <th scope="col">image</th>
+      <th scope="col">options</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each products}}
+    <tr>
+      <td>{{this.name}}</td>
+      <td>{{this.category}}</td>
+      <td><img style="width:50px;height:50px"  src="/product-images/{{this._id}}.jpg" alt=""></td>
+      <td><a href="/admin/edit-product/{{this._id}}" class="btn btn-primary" alt="">EDIT</a>
+      <a href="/admin/delete-product/{{this._id}}" class="btn btn-danger" onclick="return confirm('Are you want to Delete?')" alt="">DELETE</a> 
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>
+    </div>
+</section>
+<script>
+  $(document).ready( function () {
+    $('#prodSearch').DataTable();
+} );
+</script>

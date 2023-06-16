@@ -1,0 +1,39 @@
+<section class="add-product">
+<div class="container">
+    <div class="row justify-content-center  mt-4">
+      <div class="col-md-6">
+<h4>Edit Product</h4>  
+  <form action="/admin/edit-product/{{product._id}}" method="POST" enctype="multipart/form-data">
+  <div class="form-group mt-3">
+    <label for="formGroupExampleInput">name</label>
+    <input type="text" name="name" value="{{product.name}}" class="form-control" id="formGroupExampleInput" placeholder="name">
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput2">category</label>
+    <input type="text" name="category" value="{{product.category}}"  class="form-control" id="formGroupExampleInput2" placeholder="category">
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput2">description</label>
+    <input type="text" name="description" value="{{product.description}}" class="form-control" id="formGroupExampleInput2" placeholder="Description">
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput2">price</label>
+    <input type="text" name="price"  value="{{product.price}}" class="form-control" id="formGroupExampleInput2" placeholder="price">
+  </div>
+  <img src="/product-images/{{product._id}}.jpg" alt="" style="width:100px;height:auto" id="imGview">
+  <div class="custom-file">   
+  <input type="file" name="image" class="custom-file-input" id="imgView" onchange="viewImage(event)">
+  <label class="custom-file-label" for="customFile">image</label>
+</div>
+<button class="btn btn-primary mt-4" type="submit">Submit</button>
+</form>
+</div>
+</div>
+    </div>
+</div>
+</section>
+<script>
+  function viewImage(event){
+    document.getElementById('imgView').src=URL.createObjectURL(event.target.fileS[0])
+  }
+</script>

@@ -1,0 +1,31 @@
+<section class="orders">
+     <div class="container p-3"> 
+        <div class="row p-2">
+<table class="table mt-5  p-3 pl-3">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">userid</th>
+      <th scope="col">price</th>
+      <th scope="col">status</th>
+      <th scope="col">address</th>
+      <th scope="col">product</th>
+      <th></th>
+    </tr>
+  </thead>
+<tbody>
+{{#each orders}}
+    <tr> 
+      <td>{{this.userId}}</td> 
+      <td>{{this.price}}</td>
+      <td>{{this.status}}</td>
+    <td>{{this.deliveryDetails.address}},{{this.deliveryDetails.pincode}},{{this.deliveryDetails.mobile}}</td>
+   <td>
+        <a href="/view-orderedProduct/{{this._id}}" class="btn btn-success ml-auto">View Product</a>
+      </td> 
+   </tr>  
+    {{/each}}
+  </tbody>
+</table>
+ </div> 
+     </div>
+</section>
